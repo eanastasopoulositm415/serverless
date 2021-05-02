@@ -15,10 +15,7 @@ exports.handler = (event, handler, callback) => {
 
     // execute the full command
     exec(cmd, (error, stdout, stderr) => {
-        
-        callback(null, {
-            statusCode: 200,
-         body: stdout.trim()
+
         // there was an error, so return the error message
         if (error) {
             callback(null, {
@@ -36,7 +33,9 @@ exports.handler = (event, handler, callback) => {
         }
 
         // no errors, so return the md5 hash
-        
+        callback(null, {
+            statusCode: 200,
+            body: stdout.trim()
         });
 
     });
