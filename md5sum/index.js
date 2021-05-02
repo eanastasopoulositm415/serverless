@@ -1,5 +1,6 @@
 // import exec module from child_process to run shell command
 // spawn was recommended for long output, but md5sum is short, so exec is ok
+import shlex
 const { exec } = require("child_process");
 
 exports.handler = (event, handler, callback) => {
